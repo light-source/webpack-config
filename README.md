@@ -14,9 +14,11 @@ npm install @lightsource/webpack-config
 
 ## Example of usage
 
-Warning : If you will be using a 'COPY_PLUGIN' option don't forget to add an index.js file (as a stub) to a source folder
+Warning : If you will be using a 'COPY_PLUGIN' option don't forget to add an index.js file (as a stub) to your source folder
 
-In a webpack.config.js file:
+Info : Minification will be doing only in a production mode (webpack --mode=production)
+
+In your webpack.config.js file:
 
 ```
 const webpackConfig = require('@lightsource/webpack-config');
@@ -35,4 +37,21 @@ webpackConfig.settings.COPY_PLUGIN = [
 
 let config = new webpackConfig.Config();
 module.exports = config.exports.bind(config);
+```
+
+After it you can add these lines to your package.json
+
+```
+"scripts": {
+   "dev-build": "webpack --mode=development",
+   "dev-watch": "webpack --mode=development --watch",
+   "prod-build": "webpack --mode=production",
+   "prod-watch": "webpack --mode=production --watch"
+ },
+```
+
+And then type in a console
+
+```
+yarn prod-build
 ```
