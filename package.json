@@ -11,7 +11,7 @@
     "sass-loader": "^8.0.2"
   },
   "name": "@lightsource/webpack-config",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "webpack-config.js",
   "devDependencies": {},
   "scripts": {
