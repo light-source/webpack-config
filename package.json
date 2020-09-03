@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "copy-webpack-plugin": "^6.1.0",
+    "ignore-assets-webpack-plugin": "^2.0.1",
+    "mini-css-extract-plugin": "^0.11.0"
+  },
+  "name": "@lightsource/webpack-config",
+  "version": "1.0.0",
+  "main": "webpack-config.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/light-source/webpack-config.git"
+  },
+  "author": "LightSource",
+  "license": "MIT",
+  "bugs": {
+    "url": "ttps://github.com/light-source/webpack-config/issues"
+  },
+  "homepage": "https://github.com/light-source/webpack-config#readme",
+  "description": "Helper for Webpack with a tuned config for a quick start.",
+  "keywords": [
+    "webpack",
+    "helper",
+    "config"
+  ]
+}
