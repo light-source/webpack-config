@@ -147,7 +147,9 @@ class Config {
             filename: path.basename(Config.MakePathAbs(settings.INPUT_DIR, settings.STUB_FILE)),
         };
         taskSettings.plugins = [
-            new copyPlugin(settings.COPY_PLUGIN),
+            new copyPlugin({
+                patterns: settings.COPY_PLUGIN,
+            }),
             new ignoreAssetsWebpackPlugin({
                 ignore: [
                     Config.MakePathAbs(settings.INPUT_DIR, settings.STUB_FILE),
