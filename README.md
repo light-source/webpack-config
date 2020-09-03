@@ -14,7 +14,9 @@ npm install @lightsource/webpack-config
 
 ## Example of usage
 
-In the webpack.config.js file
+Warning : If you will be using a 'COPY_PLUGIN' option don't forget to add an index.js file (as a stub) to a source folder
+
+In a webpack.config.js file:
 
 ```
 const webpackConfig = require('@lightsource/webpack-config');

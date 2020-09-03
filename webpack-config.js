@@ -41,8 +41,8 @@ class Config {
     //////// static methods
 
 
-    static MakepathAbs(parentpath, relativepath) {
-        return parentpath + '/' + relativepath;
+    static MakePathAbs(parentPath, relativePath) {
+        return parentPath + '/' + relativePath;
     }
 
 
@@ -135,18 +135,22 @@ class Config {
 
     _static() {
 
+        if (!settings.COPY_PLUGIN.length) {
+            return;
+        }
+
         let taskSettings = Object.assign({}, this._defaultTaskSettings);
         taskSettings.devtool = '';
-        taskSettings.entry = './' + settings.STUB_FILE;
+        taskSettings.entry = Config.MakePathAbs(settings.INPUT_DIR, settings.STUB_FILE);
         taskSettings.output = {
             path: settings.OUTPUT_DIR,
-            filename: settings.STUB_FILE,
+            filename: path.basename(Config.MakePathAbs(settings.INPUT_DIR, settings.STUB_FILE)),
         };
         taskSettings.plugins = [
             new copyPlugin(settings.COPY_PLUGIN),
             new ignoreAssetsWebpackPlugin({
                 ignore: [
-                    settings.STUB_FILE,
+                    Config.MakePathAbs(settings.INPUT_DIR, settings.STUB_FILE),
                 ],
             }),
             new imageminPlugin({
@@ -163,8 +167,8 @@ class Config {
 
         settings.SCSS_FILES.forEach((scssFile, i) => {
 
-            let pathToOriginFile = Config.MakepathAbs(settings.INPUT_DIR, scssFile[0]);
-            let pathToTargetFile = Config.MakepathAbs(settings.OUTPUT_DIR, scssFile[1]);
+            let pathToOriginFile = Config.MakePathAbs(settings.INPUT_DIR, scssFile[0]);
+            let pathToTargetFile = Config.MakePathAbs(settings.OUTPUT_DIR, scssFile[1]);
 
             let fileName = path.basename(pathToTargetFile);
             let taskSettings = Object.assign({}, this._defaultTaskSettings);
@@ -172,15 +176,15 @@ class Config {
             taskSettings.entry = pathToOriginFile;
             taskSettings.output = {
                 path: path.dirname(pathToTargetFile),
-                filename: settings.STUB_FILE,
+                filename: path.basename(Config.MakePathAbs(settings.INPUT_DIR, settings.STUB_FILE)),
             };
 
             taskSettings = this._scssTaskSettings(taskSettings, fileName);
             taskSettings.plugins.push(
                 new ignoreAssetsWebpackPlugin({
                     ignore: [
-                        settings.STUB_FILE,
-                        settings.STUB_FILE + '.map',
+                        settings.INPUT_DIR, settings.STUB_FILE,
+                        settings.INPUT_DIR, settings.STUB_FILE + '.map',
                     ],
                 }),
             );
@@ -195,8 +199,8 @@ class Config {
 
         settings.JS_FILES.forEach((jsFile, i) => {
 
-            let pathToOriginFile = Config.MakepathAbs(settings.INPUT_DIR, jsFile[0]);
-            let pathToTargetFile = Config.MakepathAbs(settings.OUTPUT_DIR, jsFile[1]);
+            let pathToOriginFile = Config.MakePathAbs(settings.INPUT_DIR, jsFile[0]);
+            let pathToTargetFile = Config.MakePathAbs(settings.OUTPUT_DIR, jsFile[1]);
 
             let taskSettings = Object.assign({}, this._defaultTaskSettings);
 
