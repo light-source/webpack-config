@@ -18,7 +18,7 @@ let settings = {
         maxEntrypointSize: 1024 * 1024,
         maxAssetSize: 2 * 1024 * 1024,
         ignored: /node_modules/,
-        modules: ["node-js/node_modules",],
+        modules: ["node_modules", "node-js/node_modules",],
         alias: {},
     },
 };
