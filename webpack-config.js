@@ -20,6 +20,7 @@ let settings = {
         ignored: /node_modules/,
         modules: ["node_modules", "node-js/node_modules",],
         alias: {},
+        devtool: 'nosources-source-map',
     },
 };
 
@@ -60,7 +61,7 @@ class Config {
                 ignored: settings.defaults.ignored,
             },
         };
-        this._defaultTaskSettings.devtool = 'nosources-source-map';
+        this._defaultTaskSettings.devtool = settings.defaults.devtool;
 
         this._defaultTaskSettings.optimization = {
             minimize: this._isProduction,
