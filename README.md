@@ -1,7 +1,9 @@
 # Webpack config
 
 ## What is it
-Helper for Webpack with a tuned config for a quick start.
+Helper for Webpack with a tuned config for a quick start. 
+
+Using DartSass, so it's supporting a modular system
 
 ## Installation
 ```
@@ -43,15 +45,15 @@ After it you can add these lines to your package.json
 
 ```
 "scripts": {
-   "dev-build": "webpack --mode=development",
-   "dev-watch": "webpack --mode=development --watch",
-   "prod-build": "webpack --mode=production",
-   "prod-watch": "webpack --mode=production --watch"
+   "build-dev": "webpack --mode=development",
+   "build-prod": "webpack --mode=production",
+   "watch-dev": "webpack --mode=development --watch",
+   "watch-prod": "webpack --mode=production --watch"
  },
 ```
 
 And then type in a console
 
 ```
-yarn prod-build
+yarn build-prod
 ```

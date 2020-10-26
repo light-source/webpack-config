@@ -119,6 +119,8 @@ class Config {
                             loader: 'sass-loader',
                             options: {
                                 sourceMap: true,
+                                // Prefer `dart-sass` which is supporting @use
+                                implementation: require('sass'),
                             },
                         },
                     ],
