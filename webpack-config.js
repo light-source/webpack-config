@@ -68,7 +68,6 @@ class Config {
             minimizer: [
                 // remove comments (default target files is js)
                 new terserPlugin({
-                    sourceMap: true,
                     terserOptions: {
                         output: {
                             comments: false,
