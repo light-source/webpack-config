@@ -1,7 +1,8 @@
 const copyPlugin = require('copy-webpack-plugin');
 const miniCssExtractPlugin = require('mini-css-extract-plugin');
 const ignoreAssetsWebpackPlugin = require('ignore-assets-webpack-plugin');
-const path = require('path'); // available by default in webpack
+// available by default in webpack
+const path = require('path');
 const terserPlugin = require('terser-webpack-plugin');
 const imageminPlugin = require('imagemin-webpack-plugin').default;
 
