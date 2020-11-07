@@ -10,10 +10,11 @@
     "postcss-loader": "^4.0.4",
     "sass": "^1.29.0",
     "sass-loader": "^10.0.5",
+    "terser-webpack-plugin": "^5.0.3",
     "webpack": "^5.4.0"
   },
   "name": "@lightsource/webpack-config",
-  "version": "1.1.1",
+  "version": "1.1.3",
   "main": "webpack-config.js",
   "devDependencies": {},
   "scripts": {

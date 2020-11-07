@@ -1,8 +1,7 @@
 const copyPlugin = require('copy-webpack-plugin');
 const miniCssExtractPlugin = require('mini-css-extract-plugin');
 const ignoreAssetsWebpackPlugin = require('ignore-assets-webpack-plugin');
-// available by default in webpack
-const path = require('path');
+const path = require('path'); // available by default in webpack
 const terserPlugin = require('terser-webpack-plugin');
 const imageminPlugin = require('imagemin-webpack-plugin').default;
 
@@ -68,6 +67,7 @@ class Config {
             minimizer: [
                 // remove comments (default target files is js)
                 new terserPlugin({
+                    sourceMap: true,
                     terserOptions: {
                         output: {
                             comments: false,
