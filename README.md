@@ -42,6 +42,7 @@ module.exports = config.exports.bind(config);
 ```
 
 After it you can add these lines to your package.json
+(don't forget to install webpack@^4.0 and webpack-cli)
 
 ```
 "scripts": {
